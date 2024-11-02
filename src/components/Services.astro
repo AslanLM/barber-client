@@ -1,0 +1,94 @@
+---
+import { PopupServicesButton } from './Popup'
+
+export interface Service{
+  title: string
+  duration: string
+  price: string
+}
+
+export interface Props {
+  icon: string
+  title: string
+  description: string
+  servicesSet: Service[]
+}
+
+const { icon, title, description, servicesSet } = Astro.props
+
+---
+
+<>
+<PopupServicesButton servicesSet={servicesSet} client:load>
+  <div class="services-item">
+    <div class="services-icon">
+      <img src={icon} alt={`${title} icon`} />
+    </div>
+    <div class="services-title">
+      <h2>{title}</h2>
+      <span class="title-arrow">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 20 20"
+          stroke-width="1.5"
+          stroke="#fff"
+          height="16"
+          width="16"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+        </svg>
+      </span>
+    </div>
+    <p class="service-description">{description}</p>
+  </div>
+</PopupServicesButton>
+</>
+
+<style>
+  .services-item {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--decoration-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .services-item:hover {
+    transform: scale(1.04);
+  }
+
+  .services-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 1rem;
+  }
+
+  .services-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .title-arrow {
+    display: inline-block;
+    animation: pulseArrow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseArrow {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+</style>

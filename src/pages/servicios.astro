@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Services from '../components/Services.astro'
+import ServiceNav from '../components/ServiceNav.astro'
+
+const services = [
+  {
+    icon: '/icons/icon1.png',
+    title: 'Servicios',
+    description:
+      'Disfruta de cortes clásicos, barba y cuidado capilar, con un servicio personalizado que se adapta a tu estilo.',
+  },
+  {
+    icon: '/icons/icon2.png',
+    title: 'Servicios Gold',
+    description:
+      'Un nivel superior de cuidado que incluye tratamientos premium, masajes relajantes y un acabado impecable.',
+  },
+  {
+    icon: '/icons/icon3.png',
+    title: 'PROMO DUO PACK (2 servicios)',
+    description:
+      ' Combina dos de tus servicios favoritos y obtén un descuento especial. Ideal para quienes buscan un look renovado.',
+  },
+  {
+    icon: '/icons/icon4.png',
+    title: 'PROMO TRIO PACK (3 servicios)',
+    description:
+      ' Aprovecha esta oferta y disfruta de tres servicios de tu elección a un precio reducido. Perfecto para un cambio de imagen completo.',
+  },
+]
+---
+
+<Layout title="Spot Barber Club | Servicios">
+  <ServiceNav title="Spot Barber Club" />
+  <main>
+    <section id="services" class="services">
+      <h1>Nuestros Servicios</h1>
+      <div class="services-wrapper">
+        <div class="services-container">
+          {
+            services.map((service) => (
+              <Services
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    main {
+      position: relative;
+      max-width: 1440px;
+      margin: 8px auto auto;
+      padding: 12px;
+      background-color: var(--primary-color);
+      border-radius: 12px;
+    }
+
+    .services {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .services h1 {
+      font-family: Montserrat, sans-serif;
+      font-size: 2rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      position: relative;
+      margin-left: 8rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .services h1::before {
+      content: '';
+      position: absolute;
+      left: -6rem;
+      height: 2px;
+      width: 4rem;
+      background-color: var(--secondary-color);
+    }
+
+    .services-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+      gap: 2rem;
+      width: 1200px;
+      padding: 2rem 0;
+    }
+
+@media (max-width: 1440px) {
+  .services h1{
+    margin-left: 6rem;
+  }
+
+  .services h1::before {
+    left: -5rem;
+    width: 3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .services h1 {
+    font-size: 1.8rem;
+    margin-left: 4rem;
+  }
+
+  .services h1::before {
+    left: -4rem;
+    width: 2.5rem;
+  }
+
+  .services-container {
+    gap: 1.5rem;
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services h1 {
+    font-size: 1.5rem;
+    margin-left: 3rem;
+  }
+
+  .services h1::before {
+    left: -3rem;
+    width: 2rem;
+  }
+
+  .services-container {
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .popup-content {
+    width: 85%;
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .services h1 {
+    font-size: 1.25rem;
+    margin-left: 2rem;
+  }
+
+  .services h1::before {
+    left: -2rem;
+    width: 1.5rem;
+  }
+
+  .services p {
+    font-size: 0.75rem;
+  }
+
+  .services-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+  }
+}
+  </style>
+</Layout>

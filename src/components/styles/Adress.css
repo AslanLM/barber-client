@@ -1,0 +1,115 @@
+.address-wrapper {
+  margin: 2rem auto;
+  padding: 20px 0;
+}
+
+.address-wrapper a:hover{
+  text-decoration: underline;
+}
+
+.address-wrapper p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 2rem;
+}
+
+.address-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.address-contact {
+  display: none;
+}
+
+#map {
+  max-width: 1200px;
+  height: 400px;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .address-wrapper p {
+    font-size: 0.95rem;
+    margin: 1.5rem;
+  }
+}
+
+@media (max-width: 858px) {
+  .address-wrapper p {
+    font-size: 0.9rem;
+    margin: 1rem;
+  }
+
+  .address-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .address-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+
+  .address-contact h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--decoration-color);
+  }
+
+  /* address using the same styles as the hero contact */
+  .hero-contact-text,
+  .hero-nt {
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  #map {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .address-wrapper p {
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+  }
+
+  .address-container {
+    padding: 5px;
+  }
+
+  .address-contact h2 {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+
+  #map {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .address-contact {
+    font-size: 0.85rem;
+  }
+
+  #map {
+    height: 200px;
+  }
+}
+
+@media (max-width: 390px) {
+  .address-contact {
+    font-size: 0.75rem;
+  }
+}
